@@ -1,0 +1,39 @@
+
+<div style="text-align: center">
+    <div id="load">Load...</div>
+    <input id="nextShow" type="button" value="Показать еще" />
+
+</div>
+
+<script
+    src="http://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $nextShow = $('#nextShow');
+        $products = $('#productsList');
+        $load     = $('#load');
+        $load.hide();
+        
+        $nextShow.click(function (){
+            $load.show();
+            var count = $('#productsList > a').size();
+            var url = '/?page=productsNextShow&start=' + count;
+            $.ajax({
+                url: url,
+                dataType : "json",
+                success: function(data)
+                {
+                    $products.append(data.content);
+
+                    if(data.last) {
+                        $nextShow.hide();
+                    }
+                    $load.hide();
+                }
+            });
+        });
+    });
+</script>

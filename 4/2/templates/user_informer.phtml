@@ -1,0 +1,10 @@
+<?php if(!empty($user)):?>
+    <div style="background: #feffe9;padding:10px;float: left;width: 300px;">
+        Вы вошли как <?=$user['name']?><br />
+        <a href="?page=userCabinet">Личный кабинет</a> <a href="?page=userLogOut">Выйти</a>
+    </div>
+    <?php return?>
+<?php endif?>
+<div style="background: #feffe9;padding:10px;float: left;width: 300px;">
+    <a href="?page=userLog">Войти</a>
+</div>

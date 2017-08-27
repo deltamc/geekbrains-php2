@@ -1,0 +1,15 @@
+
+<?php foreach($products as $product):?>
+<a href="/?page=product&id=<?=$product['pid']?>"
+   style="width:23%;float:left;display:block;text-align: center;height:400px;text-decoration: none;border:1px solid #acacac;margin:5px;">
+    <div class="name"><?=$product['name']?></div>
+    <?php if(empty($product['image'])):?>
+        <img src="/img/notphoto.jpeg" style="margin-bottom:64px;" />
+    <?php else: ?>
+        <img src="/upload/tumb/<?=$product['image']?>" style="height: 300px;" />
+    <?php endif?>
+    <div class="short_description"><?=$product['short_description']?></div>
+    <div class="price">Цена: <?=$product['price']?> руб.</div>
+</a>
+<?php endforeach?>
+

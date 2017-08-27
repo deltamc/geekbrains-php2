@@ -1,0 +1,12 @@
+<h3>Отзывы</h3>
+<form action="" enctype="multipart/form-data" method="post">
+    <textarea name="comment" id="" cols="30" rows="10"></textarea>
+    <input type="submit"  value="Опубликовать отзыв ">
+</form>
+
+<div>
+    <?php foreach ($comments as $comment):?>
+        <p><?=$comment['text']?></p>
+        <hr>
+    <?php endforeach;?>
+</div>

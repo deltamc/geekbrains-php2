@@ -1,0 +1,14 @@
+<div style="clear: both"></div>
+
+<h1><?=$name?> - Цена <?=$price?> руб.</h1>
+<div>
+    <a href="?page=addcart&id=<?=$id?>">Добавить в корзину</a>
+</div>
+<?php if(empty($images)):?>
+    <img src="/img/notphoto.jpeg" />
+<?php else:?>
+    <?php foreach($images as $image):?>
+        <a href="/upload/<?=$image['image']?>"><img src="/upload/tumb/<?=$image['image']?>" /></a>
+    <?php endforeach?>
+<?php endif?>
+<p><?=$description?></p>

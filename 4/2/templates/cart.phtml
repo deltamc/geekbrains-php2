@@ -1,0 +1,38 @@
+<?php if(empty($items)):?>
+    Корзина пуста
+    <?php return null?>
+<?php endif?>
+
+<form action="?page=cartUpdate" method="post">
+    <table style="width:500px; ">
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Кол-во</th>
+            <th>Цена</th>
+            <th>Сумма</th>
+        </tr>
+
+        <?php foreach ($items as $id => $item):?>
+            <tr>
+                <td><img src="<?=$item['img']?>" width="50"></td>
+                <td><?=$item['name']?></td>
+                <td><input type="number" name="quantity[<?=$id?>]" value="<?=$item['quantity']?>" /></td>
+                <td><?=$item['price']?> руб.</td>
+                <td><?=$item['sum']?> руб.</td>
+                <td><a href="?page=deleteProductInCart&id=<?=$id?>">Удалить</td>
+            </tr>
+        <?php endforeach?>
+
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Итого:</th>
+            <th><?=$sum?> руб.</th>
+        </tr>
+    </table>
+
+    <input type="submit" value="Обновить" />
+    <a href="?page=cartClear">Очистить корзину</a>
+</form>

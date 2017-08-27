@@ -1,0 +1,8 @@
+<div style="background: #feffe9;padding:10px;float:right;">
+    <?php if((int) $cartInformer['quantity'] === 0):?>
+        Корзина пуста
+    <?php else:?>
+        В корзине <?=$cartInformer['quantity']?> товаров, на сумму <?=$cartInformer['sum']?> руб.<br />
+        <a href="?page=cart">Оформить заказ</a>
+    <?php endif?>
+</div>
