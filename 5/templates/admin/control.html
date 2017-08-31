@@ -1,0 +1,42 @@
+{include file='../header.html'}
+<h1>Control {$name}</h1>
+<form method="POST">
+<table>
+    <thead>
+    {foreach from=$data.fields item=field}
+        <th>
+            {$field.Field}
+        </th>
+    {/foreach}
+    <th></th>
+    </thead>
+    {foreach from=$data.items item=item}
+    <tr>
+        {foreach from=$item item=value key=k}
+            <td>
+                <input type="text" name="{$item->id}_{$k}" value="{$value}" {if $k == 'id'}DISABLED{/if}>
+            </td>
+        {/foreach}
+        <td>
+            <input type="submit" name="__save_{$item->id}" value="Сохранить">
+            <input type="submit" name="__delete_{$item->id}" value="Удалить">
+        </td>
+    </tr>
+    {/foreach}
+    <tr colspan="{$fields|count}">
+        <td>Новая запись</td>
+    </tr>
+    <tr>
+    {foreach from=$data.fields item=field key=k}
+    <td>
+        <input type="text" name="new_{$field.Field}" {if $k == 'id'}DISABLED{/if}>
+    </td>
+    {/foreach}
+    <td>
+        <input type="submit" name="__create" value="Создать">
+    </td>
+    </tr>
+</table>
+</form>
+
+{include file='../footer.html'}

@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+<h1>{{ title }}</h1>
+
+<form action="" method="post" style="width:500px;;float:left;">
+    {{ content_data.message }}<br />
+    <label for="login">
+        Логин
+        <input type="text" name="login" id="login">
+    </label><br>
+    <label for="password">
+        Пароль
+        <input type="password" name="password" id="password">
+    </label><br>
+    <input type="submit" value="Начальника входи">
+</form>
+<img src="images/i.jpg" width="300">
+{% include 'footer.html' %}
